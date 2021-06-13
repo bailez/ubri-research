@@ -1,50 +1,49 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.1)  6 JUN 2021 16:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.6.1)  7 JUN 2021 07:51
 entering extended mode
- restricted \write18 enabled.
- file:line:error style messages enabled.
- %&-line parsing enabled.
-**c:/Users/felip/OneDrive/Documentos/UBRI/Notas/revisão/resumo.tex
-(c:/Users/felip/OneDrive/Documentos/UBRI/Notas/revisão/resumo.tex
+**d:/UBRI/ubri-research/Notas/bibliography/resumo.tex
+(d:/UBRI/ubri-research/Notas/bibliography/resumo.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-05-27> (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2021-02-18> xparse <2020-03-03> (C:\Program Files\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
-(c:/texlive/2021/texmf-dist/tex/latex/base/size12.clo
+(C:\Program Files\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count181
-\c@section=\count182
-\c@subsection=\count183
-\c@subsubsection=\count184
-\c@paragraph=\count185
-\c@subparagraph=\count186
-\c@figure=\count187
-\c@table=\count188
+\c@part=\count179
+\c@section=\count180
+\c@subsection=\count181
+\c@subsubsection=\count182
+\c@paragraph=\count183
+\c@subparagraph=\count184
+\c@figure=\count185
+\c@table=\count186
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (c:/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-05-27 L3 programming layer (loader) 
- (c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count189
+) (C:\Program Files\MiKTeX\tex/latex/lipsum\lipsum.sty (C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-02-18 L3 programming layer (loader) 
+ (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count187
 \l__pdf_internal_box=\box47
-)) (c:/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty (c:/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex)))
+)) (C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2020-10-27 L3 Experimental document command parser
+ (C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse-generic.tex))
 Package: lipsum 2021-03-03 v2.3 150 paragraphs of Lorem Ipsum dummy text
- (c:/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+ (C:\Program Files\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex
 File: lipsum.ltd.tex 2021-03-03 v2.3 The Lorem ipsum dummy text
-)) (c:/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
+)) (C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (c:/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
+ (C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-) (c:/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
+) (C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (c:/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
+ (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
-\Gm@cnth=\count190
-\Gm@cntv=\count191
-\c@Gm@tempcnt=\count192
+\Gm@cnth=\count188
+\Gm@cntv=\count189
+\c@Gm@tempcnt=\count190
 \Gm@bindingoffset=\dimen139
 \Gm@wd@mp=\dimen140
 \Gm@odd@mp=\dimen141
@@ -54,40 +53,40 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks16
-) (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+ (C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+ (C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
- (c:/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+ (C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (c:/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
- (c:/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
+ (C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
-) (c:/texlive/2021/texmf-dist/tex/latex/crimson/crimson.sty
+) (C:\Program Files\MiKTeX\tex/latex/crimson\crimson.sty
 Package: crimson 2017/03/16 (Bob Tennent) Supports crimson fonts for all LaTeX engines. 
- (c:/texlive/2021/texmf-dist/tex/generic/iftex/ifxetex.sty
+ (C:\Program Files\MiKTeX\tex/generic/iftex\ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (c:/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
+) (C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (c:/texlive/2021/texmf-dist/tex/latex/base/textcomp.sty
+) (C:\Program Files\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (c:/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+) (C:\Program Files\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
- (c:/texlive/2021/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/texlive/2021/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+ (C:\Program Files\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Program Files\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks17
 \XKV@tempa@toks=\toks18
 )
-\XKV@depth=\count193
+\XKV@depth=\count191
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (c:/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+)) (C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
-) (c:/texlive/2021/texmf-dist/tex/latex/fontaxes/fontaxes.sty
+) (C:\Program Files\MiKTeX\tex/latex/fontaxes\fontaxes.sty
 Package: fontaxes 2020/07/21 v1.0e Font selection axes
 LaTeX Info: Redefining \upshape on input line 29.
 LaTeX Info: Redefining \itshape on input line 31.
@@ -99,15 +98,15 @@ LaTeX Info: Redefining \ulcshape on input line 41.
 LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
-)) (c:/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+)) (C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+Crimson-TLF on input line 112.
- (c:/texlive/2021/texmf-dist/tex/latex/crimson/T1Crimson-TLF.fd
+ (C:\Program Files\MiKTeX\tex/latex/crimson\t1crimson-tlf.fd
 File: T1Crimson-TLF.fd 2016/02/19 (autoinst) Font definitions for T1/Crimson-TLF.
 )
 LaTeX Font Info:    Font shape `T1/Crimson-TLF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 112.
-) (c:/texlive/2021/texmf-dist/tex/latex/titlesec/titlesec.sty
+) (C:\Program Files\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box48
 \beforetitleunit=\skip49
@@ -119,10 +118,10 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \titlewidthlast=\dimen152
 \titlewidthfirst=\dimen153
 )
-\c@subsubparagraph=\count194
- (c:/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
+\c@subsubparagraph=\count192
+ (C:\Program Files\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
- (c:/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
+ (C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \captionmargin=\dimen154
 \captionmargin@=\dimen155
@@ -133,9 +132,9 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen160
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count195
-\c@continuedfloat=\count196
-) (c:/texlive/2021/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\c@caption@flags=\count193
+\c@continuedfloat=\count194
+) (C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip51
 \f@nch@O@elh=\skip52
@@ -146,24 +145,26 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@erf=\skip57
 \f@nch@O@olf=\skip58
 \f@nch@O@orf=\skip59
-) (c:/texlive/2021/texmf-dist/tex/latex/float/float.sty
+) (C:\Program Files\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count197
+\c@float@type=\count195
 \float@exts=\toks20
 \float@box=\box49
 \@float@everytoks=\toks21
 \@floatcapt=\box50
-) (c:/texlive/2021/texmf-dist/tex/latex/enumitem/enumitem.sty
+) (C:\Program Files\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip60
 \enit@outerparindent=\dimen161
 \enit@toks=\toks22
 \enit@inbox=\box51
-\enit@count@id=\count198
-\enitdp@description=\count199
-) (c:/texlive/2021/texmf-dist/tex/latex/natbib/bibentry.sty
+\enit@count@id=\count196
+\enitdp@description=\count197
+) (C:\Program Files\MiKTeX\tex/latex/natbib\bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
-) (./resumo.bbl) (./resumo.aux)
+)
+No file resumo.bbl.
+(resumo.aux)
 \openout1 = `resumo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
@@ -215,27 +216,25 @@ LaTeX Font Info:    ... okay on input line 105.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(c:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count266
+\scratchcounter=\count198
 \scratchdimen=\dimen162
 \scratchbox=\box52
-\nofMPsegments=\count267
-\nofMParguments=\count268
+\nofMPsegments=\count199
+\nofMParguments=\count266
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count269
+\MPscratchCnt=\count267
 \MPscratchDim=\dimen163
-\MPnumerator=\count270
-\makeMPintoPDFobject=\count271
+\MPnumerator=\count268
+\makeMPintoPDFobject=\count269
 \everyMPtoPDFconversion=\toks24
-) (c:/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (c:/texlive/2021/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-\c@mv@tabular=\count272
-\c@mv@boldtabular=\count273
+)
+\c@mv@tabular=\count270
+\c@mv@boldtabular=\count271
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -245,8 +244,15 @@ LaTeX Font Info:    Font shape `T1/Crimson-TLF/b/n' will be
 (Font)              scaled to size 18.0pt on input line 111.
 LaTeX Font Info:    Font shape `T1/Crimson-TLF/b/n' will be
 (Font)              scaled to size 14.0pt on input line 116.
-LaTeX Font Info:    Font shape `T1/Crimson-TLF/b/it' will be
-(Font)              scaled to size 14.0pt on input line 116.
+
+
+LaTeX Warning: Citation `CHANG2020641' undefined on input line 116.
+
+
+LaTeX Warning: Citation `ALEXANDER2020100776' undefined on input line 120.
+
+
+LaTeX Warning: Citation `BRAUNEIS201858' undefined on input line 127.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -255,9 +261,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[1{c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+[1{C:/Users/flpma/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
-] (./resumo.bbl)
+]
+No file resumo.bbl.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -265,24 +272,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2] (./resumo.aux) )
+[2] (resumo.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 111 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 4743 strings out of 478754
- 79168 string characters out of 5858222
- 486468 words of memory out of 5000000
- 22415 multiletter control sequences out of 15000+600000
- 478311 words of font info for 37 fonts, out of 8000000 for 9000
+ 4678 strings out of 479334
+ 77347 string characters out of 2866961
+ 481854 words of memory out of 3000000
+ 22089 multiletter control sequences out of 15000+200000
+ 464237 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,10n,117p,401b,228s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/crimson/crm_uafi7a.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/crimson/crm_fllea6.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/crimson/crm_izufyi.enc}<c:/texlive/2021/texmf-dist/fonts/type1/kosch/crimson/Crimson-Bold.pfb><c:/texlive/2021/texmf-dist/fonts/type1/kosch/crimson/Crimson-BoldItalic.pfb><c:/texlive/2021/texmf-dist/fonts/type1/kosch/crimson/Crimson-Roman.pfb>
-Output written on resumo.pdf (2 pages, 173940 bytes).
-PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 69i,10n,117p,387b,228s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+!pdfTeX error: pdflatex.exe (file Crimson-Bold-tlf-t1--base): Font Crimson-Bold-tlf-t1--base at 1080 not found
+ ==> Fatal error occurred, no output PDF file produced!
