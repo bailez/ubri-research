@@ -1,0 +1,18 @@
+TY  - JOUR
+T1  - What do price discovery metrics really measure?
+AU  - Putniņš, Tālis J.
+JO  - Journal of Empirical Finance
+VL  - 23
+SP  - 68
+EP  - 83
+PY  - 2013
+DA  - 2013/09/01/
+SN  - 0927-5398
+DO  - https://doi.org/10.1016/j.jempfin.2013.05.004
+UR  - https://www.sciencedirect.com/science/article/pii/S0927539813000340
+KW  - Price discovery
+KW  - Information share
+KW  - Component share
+KW  - Information leadership share
+AB  - A market is typically considered to dominate price discovery if it is the first to reflect new information about the fundamental value. Our simulations indicate that common price discovery metrics – Hasbrouck information share and Harris–McInish–Wood component share – are only consistent with this view of price discovery if the price series have equal levels of noise, including microstructure frictions and liquidity. If the noise in the price series differs, the information and component shares measure a combination of leadership in impounding new information and relative avoidance of noise, to varying degrees. A third price discovery metric, the ‘information leadership share’ uses the information share and the component share together to identify the price series that is first to impound new information. This third metric is robust to differences in noise levels and therefore correctly attributes price discovery in a wider range of settings. Using four recent empirical studies of price discovery we show that the choice and interpretation of price discovery metrics can have a substantial impact on conclusions about price discovery.
+ER  - 
