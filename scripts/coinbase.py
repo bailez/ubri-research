@@ -26,7 +26,8 @@ def _coinbase_wrapper(crypto : str,
     
     return df
 
-def get_coin_series(begin : str, end : str, crypto : str):
+def get_coin_series(begin : str, end : str, 
+                    crypto : str, debug : bool = False) -> pd.DataFrame:
     
     dates = pd.date_range(begin, end)
     
@@ -38,10 +39,17 @@ def get_coin_series(begin : str, end : str, crypto : str):
         end_date = dates[(i+1)*300]
     
     
-    
-        df_slice = _coinbase_wrapper(crypto = crypto, 
+        try:   
+            df_slice = _coinbase_wrapper(crypto = crypto, 
                       start_date = start_date, 
                       end_date = end_date)
+        except ValueError as e:
+            if debug:
+                print(e)
+                
+            else:
+                continue
+                
         
         df = pd.concat([df, df_slice], axis=0)
         
@@ -54,6 +62,8 @@ def get_coin_series(begin : str, end : str, crypto : str):
     df = df.set_index('date')
     
     df = df.drop_duplicates()
+    
+    df = df.drop('unix',axis=1)
     
     df = df.sort_index()
     
