@@ -16,8 +16,8 @@ for coin in COINS:
 
     crypto = (COINS[coin])
 
-    df = get_coin_series(begin, end, crypto)
+    df = get_coin_series(begin, end, crypto, debug = True)
 
-    df.to_excel(writer, sheet_name = coin)
+    df.to_excel(writer, sheet_name = coin + f' ({crypto})')
 
 writer.save()
