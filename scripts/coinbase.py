@@ -13,6 +13,7 @@ def _coinbase_wrapper(crypto : str,
     
     url = f'https://api.exchange.coinbase.com/products/{symbol}/candles?'\
     f'granularity={granularity}&start={start_date}&end={end_date}' 
+    print(url)
     
     response = requests.get(url)
     try:
@@ -38,9 +39,9 @@ def get_coinbase(begin : str, end : str,
     
     for i in range(len(dates)//300):
     
-        start_date = dates[i*300]
+        start_date = dates[i*300].strftime('%Y-%m-%d')
     
-        end_date = dates[(i+1)*300]
+        end_date = dates[(i+1)*300].strftime('%Y-%m-%d')
     
     
         try:   

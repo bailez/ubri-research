@@ -1,3 +1,5 @@
+import os
+os.chdir(r'C:\Users\felip\OneDrive\Documentos\UBRI\ubri-research\scripts')
 from coinbase import get_coinbase
 from kraken import get_kraken
 import pandas as pd
@@ -7,6 +9,7 @@ COINS
 
 begin = '2010-01-01'
 end = '2021-12-31'
+min_obs = 180
 
 
 # %% COINBASE
@@ -16,6 +19,7 @@ writer = pd.ExcelWriter('coinbase.xlsx', engine='xlsxwriter')
 for coin in COINS:   
 
     crypto = (COINS[coin])
+    
 
     df = get_coinbase(begin, end, crypto, debug = True)
 
@@ -56,6 +60,10 @@ for coin in COINS:
     
     if len(df) == 0:
         continue
+    
+    if len(temp[index]) < min_obs:
+        print(coin, 'tem poucas observações')
+        continue
 
     df.to_excel(writer, sheet_name = coin + f' ({crypto})')
 
@@ -76,9 +84,14 @@ for coin in COINS:
     temp = get_kraken(crypto, debug = True)
     if len(temp) == 0:
         continue
-    df_close[crypto] = temp[index]
     
+    if len(temp[index]) < min_obs:
+        print(coin, 'tem poucas observações')
+        continue
+    df_close[crypto] = temp[index]
 
+    
+# %%
 
 df_close.to_excel(writer, sheet_name = index)
 
