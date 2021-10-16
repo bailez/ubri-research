@@ -47,16 +47,20 @@ Visualizando dados
 '''
 
 fig, axs = plt.subplots(2,1,figsize=(10,10))
-
+axs[0].set_title('Kraken', loc='left', fontsize=16)
 df.kraken.plot(ax=axs[0], legend=False)
 
 df.coinbase.plot(ax=axs[1])
-
+axs[1].set_title('Coinbase', loc='left', fontsize=16)
 plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
 
 
 # %%
+'''
 
+Descrição dos dados
+
+'''
 print(df.kraken.describe().round(3).T.drop('count',axis=1).to_latex())
 
 print(df.coinbase.describe().round(3).T.drop('count',axis=1).to_latex())
