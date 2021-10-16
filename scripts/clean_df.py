@@ -63,4 +63,24 @@ print(df.coinbase.describe().round(3).T.drop('count',axis=1).to_latex())
 
 # %%
 
+adf_kraken = pd.DataFrame()
+
+adf_coinbase = pd.DataFrame()
+
+for coin in coins[1:]:
+
+    adf = adfuller(df.kraken[coin])
+
+    adf_kraken[coin] = pd.Series(list(adf[:2]), index = ['adf', 'pvalue'])
+    
+    adf = adfuller(df.coinbase[coin])
+    
+    adf_coinbase[coin] = pd.Series(list(adf[:2]), index = ['adf', 'pvalue'])
+
+    
+# %%
+
+print(adf_kraken.T.round(3).to_latex())
+
+print(adf_coinbase.T.round(3).to_latex())
 
