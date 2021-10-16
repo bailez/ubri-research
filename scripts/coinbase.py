@@ -59,11 +59,14 @@ def get_coinbase(begin : str, end : str,
         
         df = pd.concat([df, df_slice], axis=0)
         
-    df_slice = _coinbase_wrapper(crypto = 'BTC', 
+    df_slice = _coinbase_wrapper(crypto = crypto, 
                   start_date = end_date, 
                   end_date = dates[-1])
     
     df = pd.concat([df, df_slice], axis=0)
+    
+    if len(df) == 0:
+        return df
     
     df = df.set_index('date')
            

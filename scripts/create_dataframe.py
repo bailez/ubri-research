@@ -5,9 +5,8 @@ from kraken import get_kraken
 import pandas as pd
 from coins import COINS
 
-COINS
 
-begin = '2010-01-01'
+begin = '2019-01-01'
 end = '2021-12-31'
 min_obs = 200
 index = 'close'
