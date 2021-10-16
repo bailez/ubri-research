@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Oct 15 09:34:49 2021
-
-@author: felip
-"""
-
+import os
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from statsmodels.tsa.stattools import adfuller
+
+os.chdir(r'C:\Users\felip\OneDrive\Documentos\UBRI\ubri-research\scripts')
 
 kraken = pd.read_excel('kraken_close.xlsx')
 coinbase = pd.read_excel('coinbase_close.xlsx')
@@ -17,6 +16,12 @@ for i in kraken:
         coins.append(i)
         
 # %%
+
+'''
+
+Cria dataframe com duas bolsas e aplica log nos preços
+
+'''
 coinbase = coinbase[coins].set_index('date')
 kraken = kraken[coins].set_index('date')
 
@@ -30,4 +35,32 @@ coinbase.columns = coinbase_cols
 kraken.columns = kraken_cols
 
 df = pd.concat([kraken, coinbase],axis=1).dropna()
+
+df = np.log(df)
+
+# %%
+
+'''
+
+Visualizando dados
+
+'''
+
+fig, axs = plt.subplots(2,1,figsize=(10,10))
+
+df.kraken.plot(ax=axs[0], legend=False)
+
+df.coinbase.plot(ax=axs[1])
+
+plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
+
+
+# %%
+
+print(df.kraken.describe().round(3).T.drop('count',axis=1).to_latex())
+
+print(df.coinbase.describe().round(3).T.drop('count',axis=1).to_latex())
+
+# %%
+
 

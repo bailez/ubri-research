@@ -9,8 +9,8 @@ COINS
 
 begin = '2010-01-01'
 end = '2021-12-31'
-min_obs = 180
-
+min_obs = 200
+index = 'close'
 
 # %% COINBASE
 
@@ -22,6 +22,14 @@ for coin in COINS:
     
 
     df = get_coinbase(begin, end, crypto, debug = True)
+    
+    if len(df) == 0:
+        continue
+        
+    if len(df[index].dropna()) < min_obs:
+        print(coin, 'tem poucas observações')
+        continue
+
 
     df.to_excel(writer, sheet_name = coin + f' ({crypto})')
 
@@ -29,7 +37,7 @@ writer.save()
 
 # %%
 
-index = 'close'
+
 
 writer = pd.ExcelWriter(f'coinbase_{index}.xlsx', engine='xlsxwriter')
 
@@ -40,6 +48,14 @@ for coin in COINS:
     crypto = (COINS[coin])
 
     temp = get_coinbase(begin, end, crypto, debug = True)
+    
+    if len(temp) == 0:
+        continue
+    
+    if len(temp[index].dropna()) < min_obs:
+        print(coin, 'tem poucas observações')
+        continue
+    
     df_close[crypto] = temp[index]
     
 
@@ -59,9 +75,9 @@ for coin in COINS:
     df = get_kraken(crypto, debug = True)
     
     if len(df) == 0:
-        continue
+        continue    
     
-    if len(temp[index]) < min_obs:
+    if len(df[index].dropna()) < min_obs:
         print(coin, 'tem poucas observações')
         continue
 
@@ -85,7 +101,7 @@ for coin in COINS:
     if len(temp) == 0:
         continue
     
-    if len(temp[index]) < min_obs:
+    if len(temp[index].dropna()) < min_obs:
         print(coin, 'tem poucas observações')
         continue
     df_close[crypto] = temp[index]
