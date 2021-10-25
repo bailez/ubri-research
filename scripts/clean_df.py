@@ -34,10 +34,16 @@ kraken_cols = pd.MultiIndex.from_tuples(kraken_cols, names=["exchange", "crypto"
 coinbase.columns = coinbase_cols
 kraken.columns = kraken_cols
 
-df = pd.concat([kraken, coinbase],axis=1).dropna()
+df = pd.concat([kraken, coinbase],axis=1)#.dropna()
 
 df = np.log(df)
 
+for i in df.columns.get_level_values('crypto'):
+    sliced_coin = df.xs(i,level=1, axis=1).dropna()
+    df.loc[:,('kraken',i)] = sliced_coin['kraken']
+    df.loc[:,('coinbase',i)] = sliced_coin['coinbase']
+
+df = df.loc[df.first_valid_index():]
 # %%
 
 '''
@@ -102,19 +108,16 @@ for coin in coins[1:]:
     
     
 
-    adf = list(adfuller(df.kraken[coin]))
+    adf = list(adfuller(df.kraken[coin].dropna()))
     #adf[1] = add_star(adf[1])    
-    adf = [*adf[:4], *adf[4].values(), adf[5]]    
-    adf_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
-                                                         'lag', 'obs', '1%',
-                                                         '5%', '10%', 'IC'])
+    adf = adf[:3]#, *adf[4].values(), adf[5]]    
+    adf_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
-    adf = list(adfuller(df.coinbase[coin]))
+    adf = list(adfuller(df.coinbase[coin].dropna()))
     #adf[1] = add_star(adf[1])
-    adf = [*adf[:4], *adf[4].values(), adf[5]]
-    adf_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
-                                                         'lag', 'obs', '1%',
-                                                         '5%', '10%', 'IC'])
+    adf = adf[:3]#, *adf[4].values(), adf[5]]
+    adf_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
+    
     
 # %%
 adf_table_kraken = adf_kraken.T.round(3)
@@ -155,17 +158,14 @@ for coin in coins[1:]:
     
     
 
-    adf = list(adfuller(dff.kraken[coin]))   
-    adf = [*adf[:4], *adf[4].values(), adf[5]]    
-    adff_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
-                                                         'lag', 'obs', '1%',
-                                                         '5%', '10%', 'IC'])
+    adf = list(adfuller(dff.kraken[coin].dropna()))   
+    adf = adf[:3]#, *adf[4].values(), adf[5]]    
+    adff_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
+                                                         
     
-    adf = list(adfuller(dff.coinbase[coin]))
-    adf = [*adf[:4], *adf[4].values(), adf[5]]
-    adff_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
-                                                         'lag', 'obs', '1%',
-                                                         '5%', '10%', 'IC'])
+    adf = list(adfuller(dff.coinbase[coin].dropna()))
+    adf = adf[:3]#, *adf[4].values(), adf[5]] 
+    adff_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
 # %%
 adff_table_kraken = adff_kraken.T.round(3)
