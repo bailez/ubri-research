@@ -61,9 +61,36 @@ plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
 Descrição dos dados
 
 '''
-print(df.kraken.describe().round(3).T.drop('count',axis=1).to_latex())
+kraken_desc = df.kraken.describe().round(3).T
+kraken_desc['count'] = kraken_desc['count'].apply(int)
 
-print(df.coinbase.describe().round(3).T.drop('count',axis=1).to_latex())
+
+coinbase_desc = df.coinbase.describe().round(3).T
+coinbase_desc['count'] = coinbase_desc['count'].apply(int)
+
+
+print(kraken_desc.to_latex())
+print(coinbase_desc.to_latex())
+
+# %%
+
+def add_star(pvalue : float) -> str:
+    
+    ast = ''
+    
+    if pvalue < 0.1:
+        ast = '*'
+    
+    if pvalue < 0.05:
+        ast = '**'
+        
+    if pvalue < 0.05:
+        ast = '**'
+        
+    if pvalue < 0.01:
+        ast = '***'
+            
+    return str(pvalue)[:6] + ast
 
 # %%
 
@@ -72,19 +99,81 @@ adf_kraken = pd.DataFrame()
 adf_coinbase = pd.DataFrame()
 
 for coin in coins[1:]:
-
-    adf = adfuller(df.kraken[coin])
-
-    adf_kraken[coin] = pd.Series(list(adf[:2]), index = ['adf', 'pvalue'])
     
-    adf = adfuller(df.coinbase[coin])
     
-    adf_coinbase[coin] = pd.Series(list(adf[:2]), index = ['adf', 'pvalue'])
 
+    adf = list(adfuller(df.kraken[coin]))
+    #adf[1] = add_star(adf[1])    
+    adf = [*adf[:4], *adf[4].values(), adf[5]]    
+    adf_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
+                                                         'lag', 'obs', '1%',
+                                                         '5%', '10%', 'IC'])
+    
+    adf = list(adfuller(df.coinbase[coin]))
+    #adf[1] = add_star(adf[1])
+    adf = [*adf[:4], *adf[4].values(), adf[5]]
+    adf_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
+                                                         'lag', 'obs', '1%',
+                                                         '5%', '10%', 'IC'])
     
 # %%
+adf_table_kraken = adf_kraken.T.round(3)
+adf_table_kraken.pvalue = adf_table_kraken.pvalue.apply(add_star)
+print(adf_table_kraken.to_latex())
 
-print(adf_kraken.T.round(3).to_latex())
 
-print(adf_coinbase.T.round(3).to_latex())
+adf_table_coinbase = adf_coinbase.T.round(3)
+adf_table_coinbase.pvalue = adf_table_coinbase.pvalue.apply(add_star)
+print(adf_table_coinbase.to_latex())
+
+
+# %%
+dff = df.diff().dropna()
+
+
+'''
+
+Visualizando dados 1 diferenças
+
+'''
+
+fig, axs = plt.subplots(2,1,figsize=(10,10))
+axs[0].set_title('Kraken', loc='left', fontsize=16)
+dff.kraken.plot(ax=axs[0], legend=False)
+
+dff.coinbase.plot(ax=axs[1])
+axs[1].set_title('Coinbase', loc='left', fontsize=16)
+plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
+
+# %%
+
+adff_kraken = pd.DataFrame()
+
+adff_coinbase = pd.DataFrame()
+
+for coin in coins[1:]:
+    
+    
+
+    adf = list(adfuller(dff.kraken[coin]))   
+    adf = [*adf[:4], *adf[4].values(), adf[5]]    
+    adff_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
+                                                         'lag', 'obs', '1%',
+                                                         '5%', '10%', 'IC'])
+    
+    adf = list(adfuller(dff.coinbase[coin]))
+    adf = [*adf[:4], *adf[4].values(), adf[5]]
+    adff_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 
+                                                         'lag', 'obs', '1%',
+                                                         '5%', '10%', 'IC'])
+    
+# %%
+adff_table_kraken = adff_kraken.T.round(3)
+adff_table_kraken.pvalue = adff_table_kraken.pvalue.apply(add_star)
+print(adff_table_kraken.to_latex())
+
+
+adff_table_coinbase = adff_coinbase.T.round(3)
+adff_table_coinbase.pvalue = adff_table_coinbase.pvalue.apply(add_star)
+print(adff_table_coinbase.to_latex())
 

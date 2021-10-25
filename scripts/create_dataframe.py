@@ -6,7 +6,7 @@ import pandas as pd
 from coins import COINS
 
 
-begin = '2019-01-01'
+begin = '2015-01-01'
 end = '2021-12-31'
 min_obs = 200
 index = 'close'
@@ -31,6 +31,7 @@ for coin in COINS:
 
 
     df.to_excel(writer, sheet_name = coin + f' ({crypto})')
+    
 
 writer.save()
 
