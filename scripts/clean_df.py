@@ -6,13 +6,17 @@ from statsmodels.tsa.stattools import adfuller
 
 os.chdir(r'C:\Users\felip\OneDrive\Documentos\UBRI\ubri-research\scripts')
 
-kraken = pd.read_excel('kraken_close.xlsx')
-coinbase = pd.read_excel('coinbase_close.xlsx')
+exchange_1_name = 'kraken'
+
+exchange_2_name = 'coinbase'
+
+exchange_1 = pd.read_excel('kraken_close.xlsx')
+exchange_2 = pd.read_excel('coinbase_close.xlsx')
 
 coins = []
 
-for i in kraken:
-    if i in coinbase.columns:
+for i in exchange_1:
+    if i in exchange_2.columns:
         coins.append(i)
         
 # %%
@@ -22,26 +26,29 @@ for i in kraken:
 Cria dataframe com duas bolsas e aplica log nos preços
 
 '''
-coinbase = coinbase[coins].set_index('date')
-kraken = kraken[coins].set_index('date')
 
-coinbase_cols = list(map(lambda x: ('coinbase', x), coinbase.columns))
-kraken_cols = list(map(lambda x: ('kraken', x), kraken.columns))
+exchange_1 = exchange_1[coins].set_index('date')
+exchange_2 = exchange_2[coins].set_index('date')
 
-coinbase_cols = pd.MultiIndex.from_tuples(coinbase_cols, names=["exchange", "crypto"])
-kraken_cols = pd.MultiIndex.from_tuples(kraken_cols, names=["exchange", "crypto"])
+exchange_1_cols = list(map(lambda x: (exchange_1_name, x), exchange_1.columns))
+exchange_2_cols = list(map(lambda x: (exchange_2_name, x), exchange_2.columns))
 
-coinbase.columns = coinbase_cols
-kraken.columns = kraken_cols
 
-df = pd.concat([kraken, coinbase],axis=1)#.dropna()
+exchange_1_cols = pd.MultiIndex.from_tuples(exchange_1_cols, names=["exchange", "crypto"])
+exchange_2_cols = pd.MultiIndex.from_tuples(exchange_2_cols, names=["exchange", "crypto"])
+
+
+exchange_1.columns = exchange_1_cols
+exchange_2.columns = exchange_2_cols
+
+df = pd.concat([exchange_1, exchange_2],axis=1)
 
 df = np.log(df)
 
 for i in df.columns.get_level_values('crypto'):
     sliced_coin = df.xs(i,level=1, axis=1).dropna()
-    df.loc[:,('kraken',i)] = sliced_coin['kraken']
-    df.loc[:,('coinbase',i)] = sliced_coin['coinbase']
+    df.loc[:,(exchange_1_name,i)] = sliced_coin[exchange_1_name]
+    df.loc[:,(exchange_2_name,i)] = sliced_coin[exchange_2_name]
 
 df = df.loc[df.first_valid_index():]
 # %%
@@ -53,11 +60,11 @@ Visualizando dados
 '''
 
 fig, axs = plt.subplots(2,1,figsize=(10,10))
-axs[0].set_title('Kraken', loc='left', fontsize=16)
-df.kraken.plot(ax=axs[0], legend=False)
+axs[0].set_title(exchange_1_name, loc='left', fontsize=16)
+df[exchange_1_name].plot(ax=axs[0], legend=False)
 
-df.coinbase.plot(ax=axs[1])
-axs[1].set_title('Coinbase', loc='left', fontsize=16)
+df[exchange_2_name].plot(ax=axs[1])
+axs[1].set_title(exchange_1_name, loc='left', fontsize=16)
 plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
 
 
@@ -67,16 +74,16 @@ plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
 Descrição dos dados
 
 '''
-kraken_desc = df.kraken.describe().round(3).T
-kraken_desc['count'] = kraken_desc['count'].apply(int)
+exchange_1_desc = df[exchange_1_name].describe().round(3).T
+exchange_1_desc['count'] = exchange_1_desc['count'].apply(int)
 
 
-coinbase_desc = df.coinbase.describe().round(3).T
-coinbase_desc['count'] = coinbase_desc['count'].apply(int)
+exchange_2_desc = df[exchange_2_name].describe().round(3).T
+exchange_2_desc['count'] = exchange_2_desc['count'].apply(int)
 
 
-print(kraken_desc.to_latex())
-print(coinbase_desc.to_latex())
+print(exchange_1_desc.to_latex())
+print(exchange_2_desc.to_latex())
 
 # %%
 
@@ -100,40 +107,34 @@ def add_star(pvalue : float) -> str:
 
 # %%
 
-adf_kraken = pd.DataFrame()
+adf_1 = pd.DataFrame()
 
-adf_coinbase = pd.DataFrame()
+adf_2 = pd.DataFrame()
 
-for coin in coins[1:]:
-    
-    
+for coin in coins[1:]:  
 
-    adf = list(adfuller(df.kraken[coin].dropna()))
-    #adf[1] = add_star(adf[1])    
-    adf = adf[:3]#, *adf[4].values(), adf[5]]    
-    adf_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
+    adf = list(adfuller(df[exchange_1_name][coin].dropna()))
+    adf = adf[:3]
+    adf_1[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
-    adf = list(adfuller(df.coinbase[coin].dropna()))
-    #adf[1] = add_star(adf[1])
-    adf = adf[:3]#, *adf[4].values(), adf[5]]
-    adf_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
+    adf = list(adfuller(df[exchange_2_name][coin].dropna()))
+    adf = adf[:3]
+    adf_2[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
     
 # %%
-adf_table_kraken = adf_kraken.T.round(3)
-adf_table_kraken.pvalue = adf_table_kraken.pvalue.apply(add_star)
-print(adf_table_kraken.to_latex())
+adf_table_1 = adf_1.T.round(3)
+adf_table_1.pvalue = adf_table_1.pvalue.apply(add_star)
+print(adf_table_1.to_latex())
 
 
-adf_table_coinbase = adf_coinbase.T.round(3)
-adf_table_coinbase.pvalue = adf_table_coinbase.pvalue.apply(add_star)
-print(adf_table_coinbase.to_latex())
+adf_table_2 = adf_2.T.round(3)
+adf_table_2.pvalue = adf_table_2.pvalue.apply(add_star)
+print(adf_table_2.to_latex())
 
 
 # %%
 dff = df.diff().dropna()
-
-
 '''
 
 Visualizando dados 1 diferenças
@@ -141,39 +142,36 @@ Visualizando dados 1 diferenças
 '''
 
 fig, axs = plt.subplots(2,1,figsize=(10,10))
-axs[0].set_title('Kraken', loc='left', fontsize=16)
-dff.kraken.plot(ax=axs[0], legend=False)
+axs[0].set_title(exchange_1_name, loc='left', fontsize=16)
+dff[exchange_1_name].plot(ax=axs[0], legend=False)
 
-dff.coinbase.plot(ax=axs[1])
-axs[1].set_title('Coinbase', loc='left', fontsize=16)
+dff[exchange_2_name].plot(ax=axs[1])
+axs[1].set_title(exchange_2_name, loc='left', fontsize=16)
 plt.legend(bbox_to_anchor=(1.01, 1.5), loc='upper left', borderaxespad=0)
 
 # %%
 
-adff_kraken = pd.DataFrame()
+adff_1 = pd.DataFrame()
 
-adff_coinbase = pd.DataFrame()
+adff_2 = pd.DataFrame()
 
 for coin in coins[1:]:
     
+    adf = list(adfuller(dff[exchange_1_name][coin].dropna()))
+    adf = adf[:3] 
+    adff_1[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
-
-    adf = list(adfuller(dff.kraken[coin].dropna()))   
-    adf = adf[:3]#, *adf[4].values(), adf[5]]    
-    adff_kraken[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
-                                                         
-    
-    adf = list(adfuller(dff.coinbase[coin].dropna()))
-    adf = adf[:3]#, *adf[4].values(), adf[5]] 
-    adff_coinbase[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
+    adf = list(adfuller(dff[exchange_2_name][coin].dropna()))
+    adf = adf[:3]
+    adff_2[coin] = pd.Series(adf, index = ['adf', 'pvalue', 'lag'])
     
 # %%
-adff_table_kraken = adff_kraken.T.round(3)
-adff_table_kraken.pvalue = adff_table_kraken.pvalue.apply(add_star)
-print(adff_table_kraken.to_latex())
+adff_table_1 = adff_1.T.round(3)
+adff_table_1.pvalue = adff_table_1.pvalue.apply(add_star)
+print(adff_table_1.to_latex())
 
 
-adff_table_coinbase = adff_coinbase.T.round(3)
-adff_table_coinbase.pvalue = adff_table_coinbase.pvalue.apply(add_star)
-print(adff_table_coinbase.to_latex())
+adff_table_2 = adff_2.T.round(3)
+adff_table_2.pvalue = adff_table_2.pvalue.apply(add_star)
+print(adff_table_2.to_latex())
 
