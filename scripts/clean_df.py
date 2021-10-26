@@ -125,11 +125,13 @@ for coin in coins[1:]:
 # %%
 adf_table_1 = adf_1.T.round(3)
 adf_table_1.pvalue = adf_table_1.pvalue.apply(add_star)
+adf_table_1.lag = adf_table_1.lag.apply(int)
 print(adf_table_1.to_latex())
 
 
 adf_table_2 = adf_2.T.round(3)
 adf_table_2.pvalue = adf_table_2.pvalue.apply(add_star)
+adf_table_2.lag = adf_table_2.lag.apply(int)
 print(adf_table_2.to_latex())
 
 
